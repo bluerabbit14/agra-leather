@@ -1,0 +1,262 @@
+.navbar {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 32px;
+}
+
+/* Logo */
+.navbar-logo a {
+  font-size: 22px;
+  text-decoration: none;
+  color: #000;
+}
+
+/* Center Links */
+.navbar-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li a {
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+/* Dropdown indicator */
+.dropdown span {
+  font-size: 10px;
+  margin-left: 4px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-toggle[aria-expanded="true"] span {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  list-style: none;
+  margin: 0;
+  padding: 8px;
+  border: 1px solid #f0f0f0;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  /* slight focus shadow */
+  min-width: 180px;
+
+  /* Transition state: hidden */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: all 0.3s ease;
+
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dropdown-menu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu li {
+  padding: 0;
+}
+
+/* this is css property inside tour dropdown update it in future when list content type changed */
+.dropdown-menu button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  padding: 10px 16px;
+  border-radius: 8px;
+  /* same corner radius concept for items */
+  color: #444;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.dropdown-menu button:hover {
+  background-color: #f7f7f7;
+  color: #000;
+}
+
+/* CTA */
+.navbar-cta .cta-button {
+  padding: 8px 16px;
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 400;
+  border-radius: 4px;
+}
+
+.navbar-cta .cta-button:hover {
+  background-color: #414A4C;
+  color: #fff;
+}
+
+.hamburger {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  margin-left: 12px;
+  display: none;
+}
+
+/* It check for screen width >768px*/
+@media (max-width: 768px) {
+
+  /* hide navbar links  */
+  .navbar-links {
+    display: none;
+  }
+
+  /* unhide hamburger icon */
+  .hamburger {
+    display: inline-block;
+  }
+}
+
+/* Side panel */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: clamp(180px, 60vw, 280px);
+  height: 100vh;
+  background-color: #fff;
+  border-right: 1px solid #ddd;
+  padding: 16px;
+  animation: slideIn 0.3s ease forwards;
+  z-index: 1000;
+}
+
+/* keyframe is used to manually create animation motion */
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+}
+
+.mobile-links {
+  list-style: none;
+  padding: 24px 0;
+  margin: 0px;
+}
+
+.mobile-links li {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.mobile-links li:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* Top-level links */
+.mobile-links a {
+  text-decoration: none;
+  color: #000;
+  font-size: 16px;
+  font-weight: 450;
+}
+
+/* Dropdown parent */
+.mobile-dropdown-toggle {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+span {
+  font-size: 12px;
+  background: none;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.mobile-dropdown-toggle[aria-expanded="true"] span {
+  transform: rotate(180deg);
+}
+
+/* Submenu */
+.mobile-submenu {
+  list-style: none;
+  margin-top: 12px;
+  padding-left: 16px;
+  border-left: 2px solid #eee;
+}
+
+/* Submenu items */
+.mobile-submenu li {
+  margin-bottom: 10px;
+  margin-bottom: 0px;
+  padding-bottom: 12px;
+  border: 0;
+}
+
+.mobile-submenu button {
+  background: none;
+  border: none;
+  width: 100%;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+  color: #333;
+}
